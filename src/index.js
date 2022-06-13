@@ -43,10 +43,13 @@ export const deepCopy = (obj) => {
         return item;
       }
     });
+
     return copiedArray;
+
   } else if (typeof obj === 'object') {
     let copiedObject = {};
     let objEntries = Object.entries(obj);
+
     objEntries.forEach(([key, value]) => {
       if (Array.isArray(value) || typeof value === 'object') {
         copiedObject[key] = deepCopy(value);
@@ -54,10 +57,9 @@ export const deepCopy = (obj) => {
         copiedObject[key] = value;
       }
     });
+
     return copiedObject;
   }
-
-
 };
 
 /**
@@ -66,6 +68,7 @@ export const deepCopy = (obj) => {
  */
 export const getAllObjectKeys = (obj) => {
   let keys = [];
+
   Object.entries(obj).reduce((accum, [key, value]) => {
     if (typeof value === 'object') {
       return keys.push(...getAllObjectKeys(value));
@@ -73,6 +76,6 @@ export const getAllObjectKeys = (obj) => {
       return keys.push(key);
     }
   }, []);
-  let uniqueKeys = [...new Set(keys)];
-  return uniqueKeys;
+
+  return [...new Set(keys)];
 };
