@@ -73,6 +73,6 @@ export const getAllObjectKeys = (obj) => {
       return keys.push(key);
     }
   }, []);
-  let uniqueKeys = [...new Set(keys)]
+  let uniqueKeys = [...new Set(keys)];
   return uniqueKeys;
 };
