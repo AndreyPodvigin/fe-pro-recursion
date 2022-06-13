@@ -52,4 +52,11 @@ const obj5 = {
   pets: true
 };
 
+const obj6 = {
+  notBla: 'test',
+  name: 'bohdam',
+  obj: { bla: { notBla: 'test' } },
+};
+
 console.log(getAllObjectKeys(obj5));
+console.log(getAllObjectKeys(obj6));

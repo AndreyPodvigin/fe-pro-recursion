@@ -55,7 +55,7 @@ export const deepCopy = (obj) => {
     objEntries.forEach(([key, value]) => {
       if (Array.isArray(value) || typeof value === 'object') {
         copiedObject[key] = deepCopy(value);
-        
+
       } else {
         copiedObject[key] = value;
       }
@@ -74,6 +74,7 @@ export const getAllObjectKeys = (obj) => {
 
   Object.entries(obj).reduce((accum, [key, value]) => {
     if (typeof value === 'object') {
+      keys.push(key);
       return keys.push(...getAllObjectKeys(value));
     } else {
       return keys.push(key);
