@@ -37,8 +37,10 @@ export const deepEqual = (obj, anotherObject) => {
 export const deepCopy = (obj) => {
   if (Array.isArray(obj)) {
     let copiedArray = obj.map((item) => {
+
       if (Array.isArray(item) || typeof item === 'object') {
         return deepCopy(item);
+
       } else {
         return item;
       }
@@ -53,6 +55,7 @@ export const deepCopy = (obj) => {
     objEntries.forEach(([key, value]) => {
       if (Array.isArray(value) || typeof value === 'object') {
         copiedObject[key] = deepCopy(value);
+        
       } else {
         copiedObject[key] = value;
       }
